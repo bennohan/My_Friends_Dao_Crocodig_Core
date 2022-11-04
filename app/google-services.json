@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "99156735263",
+    "project_id": "my-friends-room-database",
+    "storage_bucket": "my-friends-room-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99156735263:android:377b4d21880112a762ac2a",
+        "android_client_info": {
+          "package_name": "com.example.myfriendsroomdatabase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99156735263-862bd5l9ad5rruckgfaphtvohn67vesn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myfriendsroomdatabase",
+            "certificate_hash": "f48f7ab0f990c712a0287636abce7f35c02d1fb1"
+          }
+        },
+        {
+          "client_id": "99156735263-nqqeeg4ipb43l54nesinj0pmsek98elm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbI42JIGlbYJx175UCJr83TB4m-rp2RcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99156735263-nqqeeg4ipb43l54nesinj0pmsek98elm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
