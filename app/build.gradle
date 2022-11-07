@@ -60,6 +60,9 @@ dependencies {
     implementation'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
 
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+
     //classpath "com.google.gms:google-services:4.3.10"
     //classpath "com.google.firebase:firebase-crashlytics-gradle:2.8.1"
 
