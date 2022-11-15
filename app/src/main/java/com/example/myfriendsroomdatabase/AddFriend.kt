@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import com.example.myfriendsroomdatabase.data.Friend
 import com.example.myfriendsroomdatabase.data.MyDatabase
 import com.example.myfriendsroomdatabase.databinding.ActivityAddFriendBinding
 import com.example.myfriendsroomdatabase.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 
 class AddFriend : AppCompatActivity() {
@@ -17,6 +19,7 @@ class AddFriend : AppCompatActivity() {
     var name =""
     var school =""
     var hobby= ""
+    var phoneNumber= ""
 
     private lateinit var myDatabase: MyDatabase
 
@@ -28,11 +31,16 @@ class AddFriend : AppCompatActivity() {
     }
 
     fun save(){
-        if(name.isNotEmpty() &&  school.isNotEmpty() && hobby.isNotEmpty()) {
-            val newFriend = Friend(name, school, hobby)
+        if(name.isNotEmpty() &&  school.isNotEmpty() && hobby.isNotEmpty() && phoneNumber.isNotEmpty()  ) {
+            val newFriend = Friend(name, school, hobby, phoneNumber  )
 
-            Executors.newSingleThreadExecutor().execute {
+            //Executors.newSingleThreadExecutor().execute {
+                //myDatabase.friendDao().insert(newFriend)
+            //}
+
+            lifecycleScope.launch {
                 myDatabase.friendDao().insert(newFriend)
+
             }
 
             Toast.makeText(this, "Data berhasil di simpan", Toast.LENGTH_SHORT).show()
