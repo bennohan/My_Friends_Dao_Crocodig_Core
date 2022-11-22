@@ -31,8 +31,8 @@ class AddFriend : AppCompatActivity() {
     }
 
     fun save(){
-        if(name.isNotEmpty() &&  school.isNotEmpty() && hobby.isNotEmpty() && phoneNumber.isNotEmpty()  ) {
-            val newFriend = Friend(name, school, hobby, phoneNumber  )
+        if(name.isNotEmpty() &&  school.isNotEmpty() && hobby.isNotEmpty()   ) {
+            val newFriend = Friend(name, school, hobby,phoneNumber  )
 
             //Executors.newSingleThreadExecutor().execute {
                 //myDatabase.friendDao().insert(newFriend)

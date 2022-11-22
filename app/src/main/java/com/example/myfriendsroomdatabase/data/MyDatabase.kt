@@ -31,7 +31,7 @@ abstract class MyDatabase : RoomDatabase() {
                     MyDatabase ::class.java,
                     "data_teman"
                 )
-                    .addMigrations(MIGRATION_1_2)
+                   .addMigrations(MIGRATION_1_2)
                     //.fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance

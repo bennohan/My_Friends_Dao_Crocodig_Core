@@ -50,10 +50,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
     //Core Android Crocodic
-    implementation 'com.github.crocodic-studio:AndroidCoreProject:4.0.6'
+    implementation 'com.github.crocodic-studio:AndroidCoreProject:4.0.7'
     //Room
     implementation "androidx.room:room-runtime:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
+
     //ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     //Hilt
