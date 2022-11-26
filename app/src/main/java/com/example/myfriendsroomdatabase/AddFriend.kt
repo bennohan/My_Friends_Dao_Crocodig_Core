@@ -18,8 +18,7 @@ class AddFriend : AppCompatActivity() {
 
     var name =""
     var school =""
-    var hobby= ""
-    var phoneNumber= ""
+    var phone = ""
 
     private lateinit var myDatabase: MyDatabase
 
@@ -31,8 +30,8 @@ class AddFriend : AppCompatActivity() {
     }
 
     fun save(){
-        if(name.isNotEmpty() &&  school.isNotEmpty() && hobby.isNotEmpty()   ) {
-            val newFriend = Friend(name, school, hobby,phoneNumber  )
+        if(name.isNotEmpty() &&  school.isNotEmpty()  && phone.isNotEmpty()   ) {
+            val newFriend = Friend(name, school ,  phone )
 
             //Executors.newSingleThreadExecutor().execute {
                 //myDatabase.friendDao().insert(newFriend)

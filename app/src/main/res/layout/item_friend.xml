@@ -30,11 +30,11 @@
                 android:text='@{friend.school}'
                 android:textSize="20dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text='@{friend.hobby}'
-                android:textSize="20dp"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text='@{friend.hobby}'-->
+<!--                android:textSize="20dp"/>-->
 
         </LinearLayout>
 

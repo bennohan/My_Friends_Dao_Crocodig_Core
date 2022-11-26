@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = [Friend::class],
-    version = 2,
+    version = 4,
     exportSchema = false
 )
 abstract class MyDatabase : RoomDatabase() {
@@ -20,19 +20,19 @@ abstract class MyDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: MyDatabase? = null
 
-        fun getDatabase(context: Context): MyDatabase{
+        fun getDatabase(context: Context): MyDatabase {
             val tempInstance = INSTANCE
-            if (tempInstance !=null){
+            if (tempInstance != null) {
                 return tempInstance
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    MyDatabase ::class.java,
-                    "data_teman"
+                    MyDatabase::class.java,
+                    "friend_database"
                 )
-                   .addMigrations(MIGRATION_1_2)
-                    //.fallbackToDestructiveMigration()
+                    .addMigrations( MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4 )
+//                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 return instance
@@ -43,10 +43,29 @@ abstract class MyDatabase : RoomDatabase() {
 
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE Friend ADD COLUMN phone_number TEXT NOT NULL DEFAULT ''")
+                database.execSQL("ALTER TABLE Friend ADD COLUMN phoneNumber TEXT NOT NULL DEFAULT ''")
             }
         }
 
-    }
+       /*RENAME COLUMN*/
 
+       val MIGRATION_2_3 = object : Migration(2, 3) {
+           override fun migrate(database: SupportSQLiteDatabase) {
+               database.execSQL("ALTER TABLE Friend RENAME COLUMN phoneNumber TO phone")
+           }
+       }
+
+        val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("CREATE TABLE FriendBackup (id INTEGER NOT NULL, name TEXT NOT NULL, school TEXT NOT NULL, phone TEXT NOT NULL, PRIMARY KEY (id))")
+                database.execSQL("INSERT INTO FriendBackup SELECT id,  name, school, phone FROM Friend")
+                database.execSQL("DROP TABLE Friend")
+                database.execSQL("ALTER TABLE FriendBackup RENAME to Friend")
+            }
+        }
+
+
+
+
+    }
 }
